@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div class="mt-5 text-center">
+  <h1 class="display-1">Shacat's Classification</h1>
+  <p class="lead">釈迦さんのペットの画像を送ってみて下さい(/・ω・)/</p>
+  <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+    <center>
+    <input type="file" name="one_file" accept = "image/*">
+    </center>
+    <input type="submit" class="btn btn-lg btn-block btn-success" value="判定してみる">
+    {% csrf_token %}
+  </form>
+</div>
+{% endblock %}

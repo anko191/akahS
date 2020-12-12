@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div class="mt-5 text-center">
+  {% for data in result %}
+    <img class="img-fluid" src="data:image/*;base64,{{ data.0 }}" width="30%" height="30%">
+    <div class = "boxdashed" style="background-color:#ffffff;border: dashed 2px #39a0db;margin-left:30px;margin-right:30px;"><p style = "margin-top:20px;font-size:33px;" >画像は <font style="font-size:11px;">多分</font><font color="red" style="font-size:55px;">{{ data.1 }}</font> ちゃんです。</p>
+    <p style = "margin-left:20px;font-size:15px;" class="lead">予測確率は {{ data.2 }} です。</p>
+    </div>
+    <hr>
+  {% endfor %}
+  <a class="btn btn-lg btn-secondary"  href="{% url 'home' %}">戻る</a>
+</div>
+
+{% endblock %}
